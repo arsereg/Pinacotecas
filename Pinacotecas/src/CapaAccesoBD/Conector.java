@@ -1,4 +1,4 @@
-package CapaAccesoDB;
+package CapaAccesoBD;
 
 /**
  *Clase Conector

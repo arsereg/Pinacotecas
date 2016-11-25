@@ -145,9 +145,9 @@ public class Mecena {
     /**
      * @return the idPintores
      */
-    public ArrayList<String> getIdPintores() {
+    public ArrayList<String> getIdPintores() throws Exception {
         ArrayList<String> laLista;
-        laLista = (new MultiPintor()).getListaPintores(idMecena);
+        laLista = (new MultiPintor()).obtenerListaPintoresPorMecena(idMecena);
         return laLista;
     }
 
@@ -161,9 +161,9 @@ public class Mecena {
     /**
      * @return the pintores
      */
-    public ArrayList<Pintor> getPintores() {
+    public ArrayList<Pintor> getPintores() throws Exception {
         if(pintores == null){
-            this.setPintores((new MultiPintores.buscarPorMecena(this.getIdMecena())));
+            this.setPintores((new MultiPintor()).buscarPorMecena(idMecena));
         }
         return pintores;
     }

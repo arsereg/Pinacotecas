@@ -5,7 +5,7 @@
  */
 package CapaLogica;
 
-import CapaAccesoDB.Conector;
+import CapaAccesoBD.Conector;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author Gino
  */
-public class MultiMecenas {
+public class MultiMecena {
     public  Mecena buscar(String pid) throws java.sql.SQLException,Exception{
 		Mecena unaMecena = null;
 		ResultSet rs;
@@ -88,6 +88,17 @@ public class MultiMecenas {
         ArrayList<String> resultado = new ArrayList<String>();
         String sql;
         sql = "Select nombre_mecena from tmecenas;";
+        ResultSet rs = Conector.getConector().ejecutarSQL(sql, true);
+        while(rs.next()){
+            resultado.add(rs.getString("nombre_mecena"));
+        }
+        return resultado;
+    }
+    
+    public ArrayList<String> obtenerListaMecenasPorPintor(String pid) throws Exception{
+        ArrayList<String> resultado = new ArrayList<String>();
+        String sql;
+        sql = "Select nombre_mecena from tmecenas where idmecena in (Select idmecena from tmecenas where idmecena = '"+pid+"');";
         ResultSet rs = Conector.getConector().ejecutarSQL(sql, true);
         while(rs.next()){
             resultado.add(rs.getString("nombre_mecena"));

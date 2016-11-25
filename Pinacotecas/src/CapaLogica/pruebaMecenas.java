@@ -18,7 +18,7 @@ public class pruebaMecenas {
     public static void main(String[] args) throws Exception{
         LocalDate unaFecha = LocalDate.of(1990, 9, 8);
         Mecena miMecena = new Mecena("Adriana", "Japon", "Tokyo", unaFecha);
-        MultiMecenas cuack = new MultiMecenas();
+        MultiMecena cuack = new MultiMecena();
         cuack.crear("Diana", "Noruega", "Desamparados", LocalDate.of(1991, 7, 12));
     }
 }
